@@ -18,14 +18,10 @@ public class Coil : MonoBehaviour {
             var tHeight = i / (pCount - 1f);
             var tWinding = tHeight * turnCount;
             var angle = tWinding * TAU;
-            var pos = AngleToDir(angle) * radius + Vector3.up * tHeight * height;
+            var pos = angle.AngleToDir() * radius + Vector3.up * tHeight * height;
             points[i] = pos;
         }
 
         Handles.DrawPolyLine(points);
-    }
-
-    private Vector3 AngleToDir(float angle) {
-        return new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
     }
 }
